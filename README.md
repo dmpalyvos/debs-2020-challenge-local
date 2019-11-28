@@ -9,11 +9,12 @@ Please read the instructions below to get an insight about how you can get start
 
 ## About this repository
 
-This repository contains the project structure for your implementation.
-`dataset` is the folder that should contain the provided training datasets `in1.csv` (Query 1), `in2.csv` (Query 2) and `out.csv`. 
-`solution_app` is the folder of the solution implementation files.
-`docker-compose.yml` - defines the services that run together (HTTP-client against our Benchmarking system).
-`Dockerfile.solution` - defines the steps needed to build the container with your solution. *If you decided to use another language than Python, you will need to redefine this file appropriately*.
+This repository contains the basic project structure for your implementation.
+
+- `dataset` is the folder that should contain the provided training datasets `in1.csv` (Query 1), `in2.csv` (Query 2) and `out.csv`. 
+- `solution_app` is the folder of the solution implementation files.
+- `docker-compose.yml` - defines the services that run together (HTTP-client against our Benchmarking system).
+- `Dockerfile.solution` - defines the steps needed to build the container with your solution. *If you decided to use another language than Python, you will need to redefine this file appropriately*.
 
 ## Before you start
 
