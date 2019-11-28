@@ -91,17 +91,11 @@ After any change to your prediction system or HTTP-client, please run these comm
 
 If you want to test your solution outside docker (e.g., to speed up development in the initial stages) you can do so as follows.
 
-Build the grader container by running:
-
-```bash
-docker build -f Dockerfile.grader -t grader .
-```
-
 Start the grader container and forward port 80:
 
 ```bash
-docker run -p 8080:80 grader
+docker run -p 80:80 palyvos/debs-2020-challenge-grader
 ```
 
-After that, your solution should be able to access the grader exactly as it does when running in a container (at port 8080 instead of 80). Note that you will need to restart the grader container between consequent invocations of your solution application.
+After that, your solution, running locally, should be able to access the grader exactly as it does when running in a container. Note that you will need to restart the grader container between consequent invocations of your solution application.
 
