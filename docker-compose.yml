@@ -9,7 +9,7 @@ services:
     ports:
       - 8080:80
     networks:
-          - bench
+      - bench
 
   solution:
     container_name: solution-app
@@ -17,11 +17,11 @@ services:
       context: .
       dockerfile: Dockerfile.solution
     environment:
-      BENCHMARK_SYSTEM_URL: 'grader'
+      BENCHMARK_SYSTEM_URL: "grader"
     depends_on:
       - grader
     networks:
-          - bench
+      - bench
 
 networks:
-    bench: {}
+  bench: {}

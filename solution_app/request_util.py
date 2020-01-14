@@ -2,7 +2,7 @@ import requests
 
 # Timeout for GET requests to the grader.
 # Especially important for the first request, when the containers are still starting
-GET_TIMEOUT = 60
+GET_TIMEOUT = 600
 
 def host_url(host, endpoint):
     return "http://" + host + endpoint
