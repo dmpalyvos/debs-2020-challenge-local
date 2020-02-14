@@ -2,6 +2,7 @@ import os
 
 import query1
 import query2
+from request_util import waitForBenchmarkSystem
 
 
 QUERY1_ENDPOINT = '/data/1/'
@@ -14,6 +15,8 @@ if __name__ == "__main__":
         print('Warning: Benchmark system url undefined. Using localhost!')
     if host is None or '':
         print('Error reading Server address!')
+    
+    waitForBenchmarkSystem(host, 80)
     query1.run(host, QUERY1_ENDPOINT)
     query2.run(host, QUERY2_ENDPOINT)
     print('Solution Done')

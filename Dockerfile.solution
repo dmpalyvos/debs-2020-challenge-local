@@ -14,4 +14,4 @@ RUN pip3 install --no-cache-dir -r /requirements.txt
 COPY solution_app/ /app
 WORKDIR /app
 
-CMD ["python3", "solution.py"]
+CMD ["python3", "-u", "solution.py"]
