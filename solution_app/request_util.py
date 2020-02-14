@@ -32,6 +32,5 @@ def waitForBenchmarkSystem(host, port):
                 print(f'Connected to {host}:{port}')
                 return
             else:
-                print(result)
                 time.sleep(10)
     print(f'Failed to establish connection to {host}:{port} after {MAX_WAIT_BENCHMARK_SECONDS}')
