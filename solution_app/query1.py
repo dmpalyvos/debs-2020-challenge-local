@@ -4,6 +4,7 @@ import pandas as pd
 import Event_Detector as ed
 import Test_Utility as tu
 import numpy as np
+import math
 
 from request_util import get_batch, post_result
 
@@ -67,6 +68,10 @@ def run(host, endpoint):
             break
 
         jsonRecords = response.json()['records']
+        if not jsonRecords:
+            print('Last batch received!')
+            continue
+
         data = pd.DataFrame.from_dict(jsonRecords)
 
         feature_index += 1
@@ -105,8 +110,8 @@ def run(host, endpoint):
 
             # Instead of an event interval, we might be interested in an exact event point
             # Hence, we just take the mean of the interval boundaries
-            mean_event_index = np.mean(
-                [event_interval_indices[0], event_interval_indices[1]])
+            mean_event_index = math.floor(np.mean(
+                [event_interval_indices[0], event_interval_indices[1]]))
 
             # Now we create a new data window X
             # We take all datapoints that we have already receveived, beginning form the index of the event (the end index of the event interval in this case)
@@ -118,7 +123,8 @@ def run(host, endpoint):
             window_start_index = window_start_index + end_event_index
 
             my_result['d'] = True
-            my_result['event_s'] = current_window_start+mean_event_index
+            # Convert to int from int64 for serialization
+            my_result['event_s'] = int(current_window_start+mean_event_index)
 
             current_window_start = window_start_index
 

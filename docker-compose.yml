@@ -4,7 +4,7 @@ services:
     image: palyvos/debs-2020-challenge-grader
     container_name: benchmark-grader
     environment: 
-      HARD_TIMEOUT_SECONDS: 7200
+      HARD_TIMEOUT_SECONDS: 25000
       DATASET_PATH: "/dataset"
       GRADER_CACHE_ENABLED: 'True'
     volumes:
