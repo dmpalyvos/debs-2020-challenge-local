@@ -100,3 +100,11 @@ docker run -p 80:80 -v "$(pwd)/dataset":/dataset palyvos/debs-2020-challenge-gra
 
 After that, your solution, running locally, should be able to access the grader exactly as it does when running in a container. Note that you will need to restart the grader container between consequent invocations of your solution application.
 
+## Verifying your uploaded solution
+
+To verify that your solution is correctly configured to work with the online evaluation platform, you can use the template file [platform-docker-compose-template.yml](platform-docker-compose-template.yml). Edit the solution DockerHub image ID, run the following command and check that the evaluation works correctly.
+
+```bash
+docker-compose -f platform-docker-compose-template.yml up --build
+```
+

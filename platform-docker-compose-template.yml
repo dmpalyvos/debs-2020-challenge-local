@@ -1,0 +1,25 @@
+version: "3"
+services:
+  grader:
+    image: palyvos/debs-2020-challenge-grader
+    container_name: benchmark-grader
+    environment:
+      HARD_TIMEOUT_SECONDS: 25000
+      DATASET_PATH: "/dataset"
+      GRADER_CACHE_ENABLED: "True"
+    volumes:
+      - ./dataset:/dataset
+    networks:
+      - bench
+
+  solution:
+    image: YOUR_DOCKERHUB_IMAGE_ID # (e.g., palyvos/baseline-solution)
+    environment:
+      BENCHMARK_SYSTEM_URL: "grader"
+    depends_on:
+      - grader
+    networks:
+      - bench
+
+networks:
+  bench: {}
