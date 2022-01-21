@@ -6,7 +6,7 @@ cycler==0.10.0
 decorator==4.4.1
 idna==2.8
 ipdb==0.12.2
-ipython==7.9.0
+ipython==7.16.3
 ipython-genutils==0.2.0
 jedi==0.15.1
 joblib==0.14.0
